@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+dependencies:
+  '@fontsource-variable/dosis':
+    specifier: ^5.0.3
+    version: 5.0.3
+
 devDependencies:
   '@sveltejs/adapter-static':
     specifier: ^2.0.2
@@ -232,6 +237,10 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@fontsource-variable/dosis@5.0.3:
+    resolution: {integrity: sha512-SIrn1aPSROQtWydjVqejKECe0okaKPipWVNsp4cZ3g43MTW4Nab8lk/dDEEXpR83PQdmRXJpAwE/E3LpZA2LGw==}
+    dev: false
 
   /@jridgewell/resolve-uri@3.1.0:
     resolution: {integrity: sha512-F2msla3tad+Mfht5cJq7LSXcdudKTWCVYUgw6pLFOOHSTtZlj6SWNYAp+AhuqLmWdBO2X5hPrLcu8cVP8fy28w==}

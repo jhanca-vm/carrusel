@@ -1,6 +1,6 @@
 {
   "name": "carrusel",
-  "version": "0.1.0-beta.1",
+  "version": "0.1.1-beta.1",
   "description": "A simple and dependency-free carousel for Svelte that is SSR-compatible.",
   "keywords": [
     "carousel",
@@ -34,6 +34,9 @@
   ],
   "peerDependencies": {
     "svelte": "^3.54.0"
+  },
+  "dependencies": {
+    "@fontsource-variable/dosis": "^5.0.3"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^2.0.2",
