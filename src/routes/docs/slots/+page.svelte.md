@@ -34,7 +34,9 @@ The `<Carrusel>` component provides the following slots:
 
 <style>
   button {
-    inset-block: auto;
+    height: fit-content;
+    inset-block: 0;
+    margin-block: auto;
     position: absolute;
   }
 

@@ -1,5 +1,5 @@
 import { redirect } from '@sveltejs/kit'
 
-export const load = () => {
+export function load() {
   throw redirect(307, '/docs/getting-started')
 }

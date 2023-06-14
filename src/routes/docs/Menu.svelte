@@ -6,6 +6,7 @@
     'Props and Methods',
     'Slots',
     'Styling',
+    'Demos',
     'Contributing'
   ]
 
@@ -44,6 +45,7 @@
     padding: 2.5rem;
     position: sticky;
     top: 0;
+    z-index: 10;
   }
 
   nav > a {
@@ -63,6 +65,7 @@
     background-color: hwb(var(--color-100));
     display: grid;
     font-weight: 500;
+    grid-auto-rows: max-content;
     height: calc(100vh - 8rem);
     list-style: none;
     margin: 0;
