@@ -6,7 +6,7 @@
     SSR&#8209;compatible.
   </p>
   <div>
-    <a href="/">Get Started</a>
+    <a href="/docs/getting-started">Get Started</a>
     <a
       href="https://github.com/jhanca-vm/carrusel"
       target="_blank"
@@ -47,7 +47,7 @@
   p {
     font-size: 2rem;
     margin: 0 auto;
-    max-width: 40rem;
+    max-width: 44rem;
     opacity: 0.85;
   }
 
@@ -91,6 +91,12 @@
 
     svg {
       fill: hwb(var(--color-400));
+    }
+  }
+
+  @media (min-width: 768px) {
+    p {
+      font-size: 2.1rem;
     }
   }
 

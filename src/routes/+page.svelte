@@ -5,11 +5,6 @@
 
 <svelte:head>
   <title>Carrusel</title>
-  <meta
-    name="description"
-    content={'A simple and dependency-free carousel for Svelte that is ' +
-      'SSR-compatible.'}
-  />
 </svelte:head>
 
 <main>

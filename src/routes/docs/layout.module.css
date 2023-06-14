@@ -1,0 +1,70 @@
+.main {
+  overflow-x: hidden;
+  padding: 0 2.5rem 7.5rem;
+}
+
+.main h2 {
+  font-size: 2.5rem;
+  margin-top: 1.5em;
+}
+
+.main h3 {
+  font-size: 2rem;
+}
+
+.main p,
+.main li {
+  max-width: 80rem;
+}
+
+.main ul {
+  padding-left: 2em;
+}
+
+.main a {
+  color: hwb(var(--color-200));
+  font-weight: 500;
+}
+
+.main a:hover {
+  text-decoration: underline;
+}
+
+.main code:not(pre code) {
+  color: hwb(var(--color-300));
+  font-size: 1.6rem;
+}
+
+.main code:not(pre code)::before,
+.main code:not(pre code)::after {
+  content: '`';
+}
+
+.main pre {
+  border-radius: 0.8rem;
+}
+
+.main pre[class*='language-'],
+.main code[class*='language-'] {
+  font-size: 1.4rem;
+}
+
+@media (min-width: 640px) {
+  .main pre[class*='language-'],
+  .main code[class*='language-'] {
+    font-size: 1.6rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .main {
+    padding-inline: 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main {
+    margin-left: 4rem;
+    padding: 0 8rem 10rem 0;
+  }
+}

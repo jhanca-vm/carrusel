@@ -3,6 +3,14 @@
   import '../app.css'
 </script>
 
+<svelte:head>
+  <meta
+    name="description"
+    content={'A simple and dependency-free carousel for Svelte that is ' +
+      'SSR-compatible.'}
+  />
+</svelte:head>
+
 <slot />
 <footer>
   <p>Released under the MIT license.</p>
@@ -11,12 +19,12 @@
 
 <style>
   footer {
-    background: linear-gradient(hwb(var(--color-300)), hwb(var(--color-200)));
+    background-color: hwb(var(--color-200) / 0.75);
     color: hwb(var(--color-400));
     font-size: 1.6rem;
     font-weight: 500;
     line-height: 1.75;
-    padding-block: 4rem 2rem;
+    padding-block: 1.5rem;
     text-align: center;
   }
 

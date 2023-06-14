@@ -47,11 +47,11 @@
     display: grid;
     font-size: 1.8rem;
     gap: 3rem;
-    padding: 10rem 2.5rem 7rem;
+    padding: 10rem 2.5rem 9rem;
   }
 
   article {
-    background-color: hwb(var(--color-100));
+    background-color: hwb(var(--color-100) / 0.8);
     border-radius: 1.5rem;
     padding: 2rem 2.5rem 2.5rem;
   }
@@ -67,7 +67,7 @@
 
   @media (prefers-color-scheme: dark) {
     article {
-      background-color: hwb(var(--color-400));
+      background-color: hwb(var(--color-400) / 0.8);
     }
   }
 
@@ -82,20 +82,20 @@
     section {
       font-size: 2rem;
       gap: 4rem;
-      padding: 15rem 4rem 10rem;
+      padding: 15rem 4rem 11rem;
     }
   }
 
   @media (min-width: 1024px) {
     section {
       grid-template-columns: repeat(3, 1fr);
-      padding-top: 18rem;
+      padding-block: 18rem 12rem;
     }
   }
 
   @media (min-width: 1280px) {
     section {
-      padding: 20rem 8rem 10rem;
+      padding: 20rem 8rem 12.5rem;
     }
   }
 </style>

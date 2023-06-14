@@ -1,6 +1,10 @@
-# Carrusel
-
-A simple and dependency-free carousel for Svelte that is SSR-compatible.
+<div align="center">
+  <a href="https://carruseljs.vercel.app">
+    <img src="./static/logo.svg" width="70" height="70">
+  </a>
+  <h1>Carrusel</h1>
+  <p>A simple and dependency-free carousel for Svelte <br> that is SSR-compatible.</p>
+</div>
 
 ## Installation
 
@@ -13,34 +17,18 @@ npm install carrusel
 ```svelte
 <script>
   import { Carrusel, CarruselSlide } from 'carrusel'
-
-  let carrusel
 </script>
 
-<section>
-  <Carrusel bind:this={carrusel} class="carrusel" rewind>
-    <CarruselSlide>Slide 1</CarruselSlide>
-    <CarruselSlide>Slide 2</CarruselSlide>
-    <CarruselSlide>Slide 3</CarruselSlide>
-    <CarruselSlide>Slide 4</CarruselSlide>
-    <CarruselSlide>Slide 5</CarruselSlide>
-    <button slot="button-prev" on:click={carrusel.previousSlide}>Prev</button>
-    <button slot="button-next" on:click={carrusel.nextSlide}>Next</button>
-  </Carrusel>
-</section>
-
-<style>
-  section :global(.carrusel) {
-    --gap: 20px;
-  }
-
-  @media (min-width: 768px) {
-    section :global(.carrusel) {
-      --per-view: 2;
-    }
-  }
-</style>
+<Carrusel>
+  <CarruselSlide>Slide 1</CarruselSlide>
+  <CarruselSlide>Slide 2</CarruselSlide>
+  <CarruselSlide>Slide 3</CarruselSlide>
+  <CarruselSlide>Slide 4</CarruselSlide>
+  <CarruselSlide>Slide 5</CarruselSlide>
+</Carrusel>
 ```
+
+For more details, please refer to the [documentation](https://carruseljs.vercel.app/docs).
 
 ## License
 
