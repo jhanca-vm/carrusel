@@ -7,11 +7,13 @@
 
 <h2>
   {label}
-  <small>
-    <a href={`${src}/demos/${label}.svelte`} target="_blank" rel="noreferrer">
-      (Code)
-    </a>
-  </small>
+  {#if label === 'Default'}
+    <small>
+      <a href={`${src}/demos/${label}.svelte`} target="_blank" rel="noreferrer">
+        (Code)
+      </a>
+    </small>
+  {/if}
 </h2>
 
 <style>

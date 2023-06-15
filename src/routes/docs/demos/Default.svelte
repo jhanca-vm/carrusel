@@ -1,15 +1,20 @@
 <script>
   import { page } from '$app/stores'
-  import { Carrusel, CarruselSlide } from '$lib/index.js'
+  import { Carrusel, CarruselSlide } from '$lib'
   import SectionTitle from './SectionTitle.svelte'
+
+  /** @type {string} */
+  export let title
+  export let rewind = false
+  export let draggable = false
 
   /** @type {Carrusel} */
   let carrusel
 </script>
 
 <section>
-  <SectionTitle label="Navigation" />
-  <Carrusel bind:this={carrusel} class="carousel" rewind>
+  <SectionTitle label={title} />
+  <Carrusel bind:this={carrusel} class="carousel" {rewind} {draggable}>
     {#each $page.data.images as { id, author }}
       {@const src = `https://picsum.photos/id/${id}/400/200`}
       <CarruselSlide>

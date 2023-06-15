@@ -1,7 +1,9 @@
 <script>
   import navigate from './utils/navigate'
+  import actions from './actions'
 
   export let rewind = false
+  export let draggable = false
 
   /** @type {string} */
   let className = undefined
@@ -28,7 +30,7 @@
 </script>
 
 <div class={className}>
-  <ul bind:this={wrapper} aria-live="polite">
+  <ul bind:this={wrapper} aria-live="polite" use:actions={{ draggable }}>
     <slot />
   </ul>
   <slot name="button-prev" />

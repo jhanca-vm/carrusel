@@ -11,6 +11,7 @@ The `<Carrusel>` component accepts the following props:
 
 - `class`: string
 - `rewind`: boolean
+- `draggable`: boolean
 
 ## Methods
 

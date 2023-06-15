@@ -4,7 +4,7 @@
 
 <style>
   li {
-    scroll-snap-align: start;
+    scroll-snap-align: var(--snap-align, start);
   }
 
   li :global(img) {
