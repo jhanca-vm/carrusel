@@ -23,7 +23,7 @@
 
 .main a {
   color: hwb(var(--color-200));
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .main a:hover {

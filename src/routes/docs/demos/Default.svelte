@@ -7,6 +7,7 @@
   export let title
   export let rewind = false
   export let draggable = false
+  export let autoplay = false
 
   /** @type {Carrusel} */
   let carrusel
@@ -14,7 +15,13 @@
 
 <section>
   <SectionTitle label={title} />
-  <Carrusel bind:this={carrusel} class="carousel" {rewind} {draggable}>
+  <Carrusel
+    bind:this={carrusel}
+    class="carousel"
+    {rewind}
+    {draggable}
+    {autoplay}
+  >
     {#each $page.data.images as { id, author }}
       {@const src = `https://picsum.photos/id/${id}/400/200`}
       <CarruselSlide>

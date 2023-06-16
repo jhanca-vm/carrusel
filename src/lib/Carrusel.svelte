@@ -4,6 +4,8 @@
 
   export let rewind = false
   export let draggable = false
+  /** @type {number|boolean} */
+  export let autoplay = false
 
   /** @type {string} */
   let className = undefined
@@ -30,7 +32,11 @@
 </script>
 
 <div class={className}>
-  <ul bind:this={wrapper} aria-live="polite" use:actions={{ draggable }}>
+  <ul
+    bind:this={wrapper}
+    aria-live="polite"
+    use:actions={{ draggable, autoplay }}
+  >
     <slot />
   </ul>
   <slot name="button-prev" />

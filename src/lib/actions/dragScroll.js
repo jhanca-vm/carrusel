@@ -1,7 +1,7 @@
 /**
  * Enables drag scrolling functionality for Carrusel component.
  * @param {HTMLUListElement} node - Slides container element.
- * @returns A function that removes the event listener for the 'mousedown' event.
+ * @returns Function that removes the event listener for the 'mousedown' event.
  */
 export default function dragScroll(node) {
   /** @type {number} */
