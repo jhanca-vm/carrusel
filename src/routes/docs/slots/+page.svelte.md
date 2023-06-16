@@ -6,8 +6,8 @@
 
 The `<Carrusel>` component provides the following slots:
 
-- `button-prev`
-- `button-next`
+- `btn-prev`
+- `btn-next`
 
 ### Example
 
@@ -24,10 +24,10 @@ The `<Carrusel>` component provides the following slots:
   <CarruselSlide>Slide 3</CarruselSlide>
   <CarruselSlide>Slide 4</CarruselSlide>
   <CarruselSlide>Slide 5</CarruselSlide>
-  <button class="prev" slot="button-prev" on:click={carrusel.previousSlide}>
+  <button class="prev" slot="btn-prev" on:click={carrusel.previousSlide}>
     <
   </button>
-  <button class="next" slot="button-next" on:click={carrusel.nextSlide}>
+  <button class="next" slot="btn-next" on:click={carrusel.nextSlide}>
     >
   </button>
 </Carrusel>

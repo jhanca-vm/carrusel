@@ -10,8 +10,10 @@
 The `<Carrusel>` component accepts the following props:
 
 - `class`: string
+- `ariaLabel`: string
 - `rewind`: boolean
 - `draggable`: boolean
+- `autoplay`: boolean
 
 ## Methods
 

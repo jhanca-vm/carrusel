@@ -6,6 +6,14 @@
   <p>A simple and dependency-free carousel for Svelte <br> that is SSR-compatible.</p>
 </div>
 
+## Why Carrusel?
+
+Carrusel is designed to be mounted in the DOM without depending on JavaScript,
+ensuring fast and efficient loading of your carousels, significantly enhancing
+the user experience. Additionally, by not relying on JavaScript, search engines
+can easily index the content of your carousels, improving the visibility of your
+application in search results and aiding in SEO.
+
 ## Installation
 
 ```bash
@@ -29,6 +37,12 @@ npm install carrusel
 ```
 
 For more details, please refer to the [documentation](https://carruseljs.vercel.app/docs).
+
+## Donations
+
+Your donations are greatly appreciated and help to sustain the project.
+
+[PayPal](https://www.paypal.com/paypalme/jhancavm)
 
 ## License
 

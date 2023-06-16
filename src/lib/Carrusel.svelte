@@ -6,6 +6,8 @@
   export let draggable = false
   /** @type {number|boolean} */
   export let autoplay = false
+  /** @type {string} */
+  export let ariaLabel
 
   /** @type {string} */
   let className = undefined
@@ -31,7 +33,7 @@
   }
 </script>
 
-<div class={className}>
+<div class={className} role="region" aria-label={ariaLabel}>
   <ul
     bind:this={wrapper}
     aria-live="polite"
@@ -39,8 +41,8 @@
   >
     <slot />
   </ul>
-  <slot name="button-prev" />
-  <slot name="button-next" />
+  <slot name="btn-prev" />
+  <slot name="btn-next" />
 </div>
 
 <style>

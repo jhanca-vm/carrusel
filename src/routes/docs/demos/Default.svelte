@@ -18,6 +18,7 @@
   <Carrusel
     bind:this={carrusel}
     class="carousel"
+    ariaLabel="carousel"
     {rewind}
     {draggable}
     {autoplay}
@@ -31,10 +32,10 @@
         </figure>
       </CarruselSlide>
     {/each}
-    <button slot="button-prev" on:click={carrusel.previousSlide}>
+    <button slot="btn-prev" on:click={carrusel.previousSlide}>
       <img src="/icons/chevron-left.svg" alt="Prev" width="32" height="32" />
     </button>
-    <button slot="button-next" on:click={carrusel.nextSlide}>
+    <button slot="btn-next" on:click={carrusel.nextSlide}>
       <img src="/icons/chevron-right.svg" alt="Next" width="32" height="32" />
     </button>
   </Carrusel>

@@ -4,11 +4,11 @@
 
 <Title label="Getting Started"></Title>
 
-This library is currently in the beta phase, which means it is actively under
-development and some features may change in future versions before the stable
-release. It is recommended to use it with caution and be prepared for potential
-changes and improvements in its functionality. We appreciate any feedback or
-issue reports that can help us refine the library before its final release.
+Carrusel is designed to be mounted in the DOM without depending on JavaScript,
+ensuring fast and efficient loading of your carousels, significantly enhancing
+the user experience. Additionally, by not relying on JavaScript, search engines
+can easily index the content of your carousels, improving the visibility of your
+application in search results and aiding in SEO.
 
 ## Installation
 
