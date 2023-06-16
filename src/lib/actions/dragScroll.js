@@ -19,16 +19,21 @@ export default function dragScroll(node) {
         ? previous
         : current
     })
+    const finalScroll = closest - offsetLeft
 
     node.style.pointerEvents = ''
 
-    node.scrollTo({ left: closest - offsetLeft, behavior: 'smooth' })
+    if (scrollLeft !== finalScroll) {
+      node.scrollTo({ left: finalScroll, behavior: 'smooth' })
 
-    node.onscroll = () => {
-      if (node.scrollLeft === closest - offsetLeft) {
-        node.removeAttribute('style')
-        node.onscroll = null
+      node.onscroll = () => {
+        if (scrollLeft === finalScroll) {
+          node.removeAttribute('style')
+          node.onscroll = null
+        }
       }
+    } else {
+      node.removeAttribute('style')
     }
 
     window.removeEventListener('mousemove', handleMouseMove)
