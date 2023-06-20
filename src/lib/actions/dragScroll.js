@@ -10,30 +10,38 @@ export default function dragScroll(node) {
   let initialScroll
 
   const handleMouseUp = () => {
-    const { offsetLeft, scrollLeft } = node
+    const isCentered = Boolean(node.style.getPropertyValue('--snap-align'))
     /** @type {HTMLLIElement[]} */
     const slides = Array.from(node.children)
-    const positions = slides.map(({ offsetLeft }) => offsetLeft)
-    const closest = positions.reduce((previous, current) => {
-      return Math.abs(previous - scrollLeft) < Math.abs(current - scrollLeft)
+
+    if (!isCentered) slides.pop()
+
+    const closest = slides.reduce((previous, current) => {
+      /** @param {number} offsetLeft */
+      const getDistance = offsetLeft => Math.abs(offsetLeft - node.scrollLeft)
+
+      return getDistance(previous.offsetLeft) < getDistance(current.offsetLeft)
         ? previous
         : current
     })
-    const finalScroll = closest - offsetLeft
+    const offsetLeft = closest.offsetLeft - node.offsetLeft
+    const finalScroll = isCentered
+      ? offsetLeft - (node.offsetWidth - closest.offsetWidth) / 2
+      : offsetLeft
 
     node.style.pointerEvents = ''
 
-    if (scrollLeft !== finalScroll) {
+    if (node.scrollLeft !== finalScroll) {
       node.scrollTo({ left: finalScroll, behavior: 'smooth' })
 
       node.onscroll = () => {
-        if (scrollLeft === finalScroll) {
-          node.removeAttribute('style')
+        if (node.scrollLeft === finalScroll) {
+          node.style.scrollSnapType = ''
           node.onscroll = null
         }
       }
     } else {
-      node.removeAttribute('style')
+      node.style.scrollSnapType = ''
     }
 
     window.removeEventListener('mousemove', handleMouseMove)
@@ -54,7 +62,7 @@ export default function dragScroll(node) {
     startPosition = event.clientX
     initialScroll = node.scrollLeft
 
-    node.style.setProperty('--snap-align', 'none')
+    node.style.scrollSnapType = 'none'
     window.addEventListener('mousemove', handleMouseMove)
     window.addEventListener('mouseup', handleMouseUp)
   }

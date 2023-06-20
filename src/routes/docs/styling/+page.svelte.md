@@ -15,7 +15,7 @@ following CSS variables:
 ```svelte
 <section>
   <h2>Title</h2>
-  <Carrusel>
+  <Carrusel class="carousel">
     <CarruselSlide>Slide 1</CarruselSlide>
     <CarruselSlide>Slide 2</CarruselSlide>
     <CarruselSlide>Slide 3</CarruselSlide>
@@ -23,14 +23,72 @@ following CSS variables:
     <CarruselSlide>Slide 5</CarruselSlide>
   </Carrusel>
 </section>
+```
 
-<style>
-  section {
-    --gap: 24px;
-  }
+- Using a container:
 
-  @media (min-width: 768px) {
+  ```svelte
+  <style>
+    section {
+      --gap: 24px;
+    }
+
+    @media (min-width: 768px) {
+      section {
+        --gap: 32px;
+        --per-view: 2;
+      }
+    }
+  </style>
+  ```
+
+- Using a class:
+
+  ```svelte
+  <style>
+    section :global(.carousel) {
+      --gap: 24px;
+    }
+
+    @media (min-width: 768px) {
+      section :global(.carousel) {
+        --gap: 32px;
+        --per-view: 2;
+      }
+    }
+  </style>
+  ```
+
+## With CSS Modules
+
+```css
+/* Carousel.module.css */
+.carousel {
+  --gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .carousel {
+    --gap: 32px;
     --per-view: 2;
   }
-</style>
+}
+```
+
+```svelte
+<!-- Carusel.svelte -->
+<script>
+  import styles from './carousel.module.css'
+</script>
+
+<section>
+  <h2>Title</h2>
+  <Carrusel class={styles.carousel}>
+    <CarruselSlide>Slide 1</CarruselSlide>
+    <CarruselSlide>Slide 2</CarruselSlide>
+    <CarruselSlide>Slide 3</CarruselSlide>
+    <CarruselSlide>Slide 4</CarruselSlide>
+    <CarruselSlide>Slide 5</CarruselSlide>
+  </Carrusel>
+</section>
 ```

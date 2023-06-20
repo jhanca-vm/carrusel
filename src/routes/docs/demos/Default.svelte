@@ -5,9 +5,6 @@
 
   /** @type {string} */
   export let title
-  export let rewind = false
-  export let draggable = false
-  export let autoplay = false
 
   /** @type {Carrusel} */
   let carrusel
@@ -19,9 +16,10 @@
     bind:this={carrusel}
     class="carousel"
     ariaLabel="carousel"
-    {rewind}
-    {draggable}
-    {autoplay}
+    rewind={title === 'Rewind'}
+    draggable={title === 'Draggable'}
+    autoplay={title === 'Autoplay'}
+    centered={title === 'Centered'}
   >
     {#each $page.data.images as { id, author }}
       {@const src = `https://picsum.photos/id/${id}/400/200`}

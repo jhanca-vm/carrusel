@@ -1,0 +1,7 @@
+{
+  "extends": ["standard", "plugin:svelte/recommended"],
+  "rules": {
+    "space-before-function-paren": "off",
+    "no-undef-init": "off"
+  }
+}

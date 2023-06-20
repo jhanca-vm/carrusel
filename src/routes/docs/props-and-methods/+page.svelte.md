@@ -13,7 +13,8 @@ The `<Carrusel>` component accepts the following props:
 - `ariaLabel`: string
 - `rewind`: boolean
 - `draggable`: boolean
-- `autoplay`: boolean
+- `autoplay`: boolean | number (milliseconds)
+- `centered`: boolean
 
 ## Methods
 

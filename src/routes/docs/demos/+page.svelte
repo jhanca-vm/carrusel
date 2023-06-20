@@ -5,6 +5,7 @@
 
 <Title label="Demos" />
 <Default title="Default" />
-<Default title="Draggable" draggable />
-<Default title="Rewind" rewind />
-<Default title="Autoplay" autoplay />
+<Default title="Draggable" />
+<Default title="Rewind" />
+<Default title="Autoplay" />
+<Default title="Centered" />

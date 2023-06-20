@@ -8,7 +8,7 @@ export default function navigate(wrapper, to, hasRewind) {
   const { clientWidth, firstChild, scrollLeft, scrollWidth } = wrapper
   /** @type {HTMLLIElement} */
   const { offsetWidth } = firstChild
-  const hasReachedEnd = scrollLeft + clientWidth === scrollWidth
+  const hasReachedEnd = scrollLeft + clientWidth * 2 >= scrollWidth
   /** @type {ScrollToOptions} */
   const options = { left: scrollLeft, behavior: 'smooth' }
 
@@ -18,14 +18,14 @@ export default function navigate(wrapper, to, hasRewind) {
       if (!hasReachedEnd) {
         options.left += to === 'nextSlide' ? offsetWidth : clientWidth
       }
-      if (hasRewind && hasReachedEnd) options.left = 0
+      if (hasRewind && hasReachedEnd) options.left = clientWidth
       break
     case 'previousSlide':
     case 'previousPage':
-      if (scrollLeft !== 0) {
+      if (scrollLeft !== clientWidth) {
         options.left -= to === 'previousSlide' ? offsetWidth : clientWidth
       }
-      if (hasRewind && scrollLeft === 0) options.left = scrollWidth
+      if (hasRewind && scrollLeft <= clientWidth) options.left = scrollWidth
   }
 
   wrapper.scrollTo(options)

@@ -2,12 +2,13 @@
   import navigate from './utils/navigate'
   import actions from './actions'
 
-  export let rewind = false
-  export let draggable = false
-  /** @type {number|boolean} */
-  export let autoplay = false
   /** @type {string} */
   export let ariaLabel
+  /** @type {number|boolean} */
+  export let autoplay = false
+  export let rewind = false
+  export let draggable = false
+  export let centered = false
 
   /** @type {string} */
   let className = undefined
@@ -37,6 +38,7 @@
   <ul
     bind:this={wrapper}
     aria-live="polite"
+    style={centered ? '--snap-align: center' : undefined}
     use:actions={{ draggable, autoplay }}
   >
     <slot />
@@ -52,11 +54,7 @@
 
   ul {
     column-gap: var(--gap, 0);
-    display: grid;
-    grid-auto-columns: calc(
-      (100% - (var(--per-view, 1) - 1) * var(--gap, 0px)) / var(--per-view, 1)
-    );
-    grid-auto-flow: column;
+    display: flex;
     height: 100%;
     list-style: none;
     margin: 0;
