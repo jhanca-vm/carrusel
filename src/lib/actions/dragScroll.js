@@ -10,7 +10,7 @@ export default function dragScroll(node) {
   let initialScroll
 
   const handleMouseUp = () => {
-    const isCentered = Boolean(node.style.getPropertyValue('--snap-align'))
+    const isCentered = node.classList.contains('centered')
     /** @type {HTMLLIElement[]} */
     const slides = Array.from(node.children)
 

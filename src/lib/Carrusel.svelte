@@ -1,6 +1,6 @@
 <script>
-  import navigate from './utils/navigate'
-  import actions from './actions'
+  import actions from './actions/index.js'
+  import navigate from './utils/navigate.js'
 
   /** @type {string} */
   export let ariaLabel
@@ -17,29 +17,25 @@
 
   export { className as class }
 
-  export const nextSlide = () => {
-    navigate(wrapper, 'nextSlide', rewind)
-  }
+  export const nextSlide = () => navigate(wrapper, 'nextSlide', rewind)
 
-  export const previousSlide = () => {
-    navigate(wrapper, 'previousSlide', rewind)
-  }
+  export const previousSlide = () => navigate(wrapper, 'previousSlide', rewind)
 
   export const nextPage = () => {
-    navigate(wrapper, 'nextPage', rewind)
+    navigate(wrapper, centered ? 'nextSlide' : 'nextPage', rewind)
   }
 
   export const previousPage = () => {
-    navigate(wrapper, 'previousPage', rewind)
+    navigate(wrapper, centered ? 'previousSlide' : 'previousPage', rewind)
   }
 </script>
 
 <div class={className} role="region" aria-label={ariaLabel}>
   <ul
     bind:this={wrapper}
+    class:centered
     aria-live="polite"
-    style={centered ? '--snap-align: center' : undefined}
-    use:actions={{ draggable, autoplay }}
+    use:actions={{ draggable, autoplay, isCentered: centered }}
   >
     <slot />
   </ul>
@@ -67,5 +63,17 @@
 
   ul::-webkit-scrollbar {
     display: none;
+  }
+
+  .centered :global(li) {
+    scroll-snap-align: center;
+  }
+
+  .centered :global(li:first-child) {
+    margin-left: 100%;
+  }
+
+  .centered :global(li:last-child) {
+    margin-right: 100%;
   }
 </style>
