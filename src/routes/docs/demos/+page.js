@@ -5,7 +5,7 @@
  */
 
 export async function load({ fetch }) {
-  const response = await fetch('https://picsum.photos/v2/list?page=3&limit=8')
+  const response = await fetch('https://picsum.photos/v2/list?page=3&limit=9')
   /** @type {Image[]} */
   const images = await response.json()
 

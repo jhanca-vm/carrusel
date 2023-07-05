@@ -8,16 +8,13 @@ export default function navigate(wrapper, to, hasRewind) {
   const { clientWidth, firstChild, scrollLeft, scrollWidth } = wrapper
   /** @type {HTMLLIElement} */
   const { offsetWidth } = firstChild
-  const isCentered = wrapper.classList.contains('centered')
   /** @type {ScrollToOptions} */
   const options = { left: scrollLeft, behavior: 'smooth' }
 
   switch (to) {
     case 'nextSlide':
     case 'nextPage': {
-      const hasReachedEnd = isCentered
-        ? scrollLeft > scrollWidth - clientWidth * 1.5 - offsetWidth
-        : scrollLeft === scrollWidth - clientWidth
+      const hasReachedEnd = scrollLeft === scrollWidth - clientWidth
 
       if (!hasReachedEnd) {
         options.left += to === 'nextSlide' ? offsetWidth : clientWidth
@@ -29,9 +26,7 @@ export default function navigate(wrapper, to, hasRewind) {
     }
     case 'previousSlide':
     case 'previousPage': {
-      const hasReachedStart = isCentered
-        ? scrollLeft <= clientWidth / 2 + offsetWidth / 2
-        : scrollLeft === 0
+      const hasReachedStart = scrollLeft === 0
 
       if (!hasReachedStart) {
         options.left -= to === 'previousSlide' ? offsetWidth : clientWidth

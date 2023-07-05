@@ -10,11 +10,8 @@ export default function dragScroll(node) {
   let initialScroll
 
   const handleMouseUp = () => {
-    const isCentered = node.classList.contains('centered')
     /** @type {HTMLLIElement[]} */
     const slides = Array.from(node.children)
-
-    if (!isCentered) slides.pop()
 
     const closest = slides.reduce((previous, current) => {
       /** @param {number} offsetLeft */
@@ -24,10 +21,8 @@ export default function dragScroll(node) {
         ? previous
         : current
     })
-    const offsetLeft = closest.offsetLeft - node.offsetLeft
-    const finalScroll = isCentered
-      ? offsetLeft - (node.offsetWidth - closest.offsetWidth) / 2
-      : offsetLeft
+
+    const finalScroll = closest.offsetLeft - node.offsetLeft
 
     node.style.pointerEvents = ''
 

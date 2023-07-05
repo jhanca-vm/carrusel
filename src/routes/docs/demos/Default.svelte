@@ -1,6 +1,6 @@
 <script>
   import { page } from '$app/stores'
-  import { Carrusel, CarruselSlide } from '$lib'
+  import { Carrusel, CarruselSlide } from '$lib/index.js'
   import SectionTitle from './SectionTitle.svelte'
 
   /** @type {string} */
@@ -19,7 +19,6 @@
     rewind={title === 'Rewind'}
     draggable={title === 'Draggable'}
     autoplay={title === 'Autoplay'}
-    centered={title === 'Centered'}
   >
     {#each $page.data.images as { id, author }}
       {@const src = `https://picsum.photos/id/${id}/400/200`}
@@ -74,7 +73,7 @@
 
   @media (min-width: 640px) and (max-width: 767px), (min-width: 1024px) {
     section {
-      --per-view: 2;
+      --per-view: 3;
     }
   }
 </style>

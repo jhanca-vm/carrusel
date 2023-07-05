@@ -1,6 +1,8 @@
 <script>
+  import { onMount } from 'svelte'
   import actions from './actions/index.js'
   import navigate from './utils/navigate.js'
+  import createPagination from './utils/createPagination.js'
 
   /** @type {string} */
   export let ariaLabel
@@ -8,37 +10,50 @@
   export let autoplay = false
   export let rewind = false
   export let draggable = false
-  export let centered = false
+  export let pagination = false
+  export let pages = 0
+  export let currentPage = 0
 
   /** @type {string} */
   let className = undefined
   /** @type {HTMLUListElement} */
   let wrapper
 
+  onMount(() => {
+    if (pagination) {
+      createPagination(wrapper).subscribe(pagination => {
+        pages = pagination.pages
+        currentPage = pagination.currentPage
+      })
+    }
+  })
+
   export { className as class }
 
   export const nextSlide = () => navigate(wrapper, 'nextSlide', rewind)
-
   export const previousSlide = () => navigate(wrapper, 'previousSlide', rewind)
 
-  export const nextPage = () => {
-    navigate(wrapper, centered ? 'nextSlide' : 'nextPage', rewind)
-  }
+  export const nextPage = () => navigate(wrapper, 'nextPage', rewind)
+  export const previousPage = () => navigate(wrapper, 'previousPage', rewind)
 
-  export const previousPage = () => {
-    navigate(wrapper, centered ? 'previousSlide' : 'previousPage', rewind)
+  /** @param {number} page */
+  export const goToPage = page => {
+    wrapper.scrollTo({
+      left: wrapper.offsetWidth * (page - 1),
+      behavior: 'smooth'
+    })
   }
 </script>
 
 <div class={className} role="region" aria-label={ariaLabel}>
   <ul
     bind:this={wrapper}
-    class:centered
     aria-live="polite"
-    use:actions={{ draggable, autoplay, isCentered: centered }}
+    use:actions={{ draggable, autoplay }}
   >
     <slot />
   </ul>
+  <slot name="nav" />
   <slot name="btn-prev" />
   <slot name="btn-next" />
 </div>
@@ -63,17 +78,5 @@
 
   ul::-webkit-scrollbar {
     display: none;
-  }
-
-  .centered :global(li) {
-    scroll-snap-align: center;
-  }
-
-  .centered :global(li:first-child) {
-    margin-left: 100%;
-  }
-
-  .centered :global(li:last-child) {
-    margin-right: 100%;
   }
 </style>

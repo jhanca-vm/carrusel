@@ -3,9 +3,9 @@
 
   const links = [
     'Getting Started',
-    'Props and Methods',
-    'Slots',
     'Styling',
+    'Customizing',
+    'API Reference',
     'Demos',
     'Contributing'
   ]
@@ -17,12 +17,17 @@
   <a href="/">
     <img src="/logo.svg" alt="" width="22" height="22" />
     Carrusel
+    <span>v.1.2.0</span>
   </a>
   <ul class:hidden={!isVisible}>
     {#each links as link}
       {@const slug = link.toLowerCase().replaceAll(' ', '-')}
       <li>
-        <a class:active={$page.route.id.endsWith(slug)} href={`/docs/${slug}`}>
+        <a
+          class:active={$page.route.id.endsWith(slug)}
+          href={`/docs/${slug}`}
+          on:click={() => (isVisible = false)}
+        >
           {link}
         </a>
       </li>
@@ -53,6 +58,11 @@
     column-gap: 0.5rem;
     display: flex;
     font-weight: 600;
+  }
+
+  nav > a span {
+    font-size: 1.4rem;
+    opacity: 0.8;
   }
 
   svg {

@@ -42,6 +42,7 @@ a {
 button {
   background: none;
   border: none;
+  cursor: pointer;
 }
 
 @media (prefers-color-scheme: dark) {

@@ -7,7 +7,7 @@
 
 <h2>
   {label}
-  {#if label === 'Default'}
+  {#if label === 'Default' || label === 'Pagination'}
     <small>
       <a href={`${src}/demos/${label}.svelte`} target="_blank" rel="noreferrer">
         (Code)
