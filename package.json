@@ -1,6 +1,6 @@
 {
   "name": "carrusel",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A simple and dependency-free carousel for Svelte that is SSR-compatible.",
   "keywords": [
     "carousel",
@@ -36,25 +36,25 @@
     "dist"
   ],
   "peerDependencies": {
-    "svelte": "^3.54.0"
+    "svelte": "^4.0.0"
   },
   "dependencies": {
-    "@fontsource-variable/dosis": "^5.0.3"
+    "@fontsource-variable/dosis": "^5.0.4"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^2.0.2",
-    "@sveltejs/kit": "^1.5.0",
-    "@sveltejs/package": "^2.0.0",
-    "eslint": "^8.43.0",
+    "@sveltejs/kit": "^1.22.0",
+    "@sveltejs/package": "^2.1.0",
+    "eslint": "^8.44.0",
     "eslint-config-standard": "^17.1.0",
-    "eslint-plugin-svelte": "^2.31.0",
-    "mdsvex": "^0.10.6",
-    "publint": "^0.1.9",
-    "svelte": "^3.54.0",
-    "svelte-check": "^3.0.1",
-    "tslib": "^2.4.1",
-    "typescript": "^5.0.0",
-    "vite": "^4.3.0"
+    "eslint-plugin-svelte": "^2.32.2",
+    "mdsvex": "^0.11.0",
+    "publint": "^0.1.16",
+    "svelte": "^4.0.4",
+    "svelte-check": "^3.4.5",
+    "tslib": "^2.6.0",
+    "typescript": "^5.1.6",
+    "vite": "^4.4.1"
   },
   "svelte": "./dist/index.js",
   "types": "./dist/index.d.ts",
