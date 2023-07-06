@@ -64,8 +64,12 @@
   }
 
   ul {
-    column-gap: var(--gap, 0);
-    display: flex;
+    gap: var(--gap, 0);
+    display: grid;
+    grid-auto-columns: calc(
+      (100% - (var(--per-view, 1) - 1) * var(--gap, 0px)) / var(--per-view, 1)
+    );
+    grid-auto-flow: column;
     height: 100%;
     list-style: none;
     margin: 0;

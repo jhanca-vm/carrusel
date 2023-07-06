@@ -17,7 +17,7 @@
   <a href="/">
     <img src="/logo.svg" alt="" width="22" height="22" />
     Carrusel
-    <span>v.1.2.0</span>
+    <span>v.1.2.2</span>
   </a>
   <ul class:hidden={!isVisible}>
     {#each links as link}
