@@ -1,11 +1,17 @@
 import { writable } from 'svelte/store'
 
 /**
+ * Creates a read-only store for carousel pagination.
  * @param {HTMLUListElement} wrapper - Slides container element.
- * @returns Read-only store.
+ * @returns Readable store.
  */
 export default function createPagination(wrapper) {
-  const getPages = () => Math.round(wrapper.scrollWidth / wrapper.offsetWidth)
+  const getPages = () => {
+    return Math.ceil(
+      wrapper.children.length /
+        Number(wrapper.computedStyleMap().get('--per-view') || 1)
+    )
+  }
 
   const getCurrentPage = () => {
     return (

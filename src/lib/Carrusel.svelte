@@ -1,5 +1,5 @@
 <script>
-  import { onMount } from 'svelte'
+  import { onDestroy, onMount } from 'svelte'
   import actions from './actions/index.js'
   import navigate from './utils/navigate.js'
   import createPagination from './utils/createPagination.js'
@@ -18,14 +18,20 @@
   let className = undefined
   /** @type {HTMLUListElement} */
   let wrapper
+  /** @type {import('svelte/store').Unsubscriber} */
+  let unsubscribe
 
   onMount(() => {
     if (pagination) {
-      createPagination(wrapper).subscribe(pagination => {
+      unsubscribe = createPagination(wrapper).subscribe(pagination => {
         pages = pagination.pages
         currentPage = pagination.currentPage
       })
     }
+  })
+
+  onDestroy(() => {
+    if (unsubscribe) unsubscribe()
   })
 
   export { className as class }
@@ -77,7 +83,6 @@
     padding: 0;
     scrollbar-width: none;
     scroll-snap-type: x mandatory;
-    touch-action: pan-x;
   }
 
   ul::-webkit-scrollbar {
